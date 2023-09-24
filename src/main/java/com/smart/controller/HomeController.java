@@ -15,12 +15,13 @@ public class HomeController {
     @Autowired
     private UserRepository userRepository;
 
-    @RequestMapping("/home")
+    @RequestMapping("/")
     public String home(Model model)
     {
         model.addAttribute("title", "Home - smart contact manager");
         return "home";
     }
+
 
     @RequestMapping("/about")
     public String about()
@@ -28,4 +29,10 @@ public class HomeController {
         return "about";
     }
 
+    @RequestMapping("/signup")
+    public String signUp(Model model)
+    {
+        model.addAttribute("title", "Register - smart contact manager");
+        return "signup";
+    }
 }
