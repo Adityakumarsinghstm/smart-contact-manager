@@ -3,6 +3,7 @@ package com.smart.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,6 +14,7 @@ import com.smart.entities.User;
 import com.smart.helper.Message;
 
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 
 @Controller
 public class HomeController {
@@ -38,7 +40,8 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/do_register", method = RequestMethod.POST)
-    public String registerUser(@ModelAttribute("user") User user,
+    public String registerUser(@Valid @ModelAttribute("user") User user,
+            BindingResult result1 ,
             @RequestParam(value = "agreement", defaultValue = "false") boolean agreement, Model model,
             HttpSession session) {
 
@@ -46,6 +49,13 @@ public class HomeController {
             if (!agreement) {
                 System.out.println("You have not checked terms and condition ");
                 throw new Exception("You have not checked terms and condition ");
+            }
+
+            if (result1.hasErrors())
+            {
+                System.out.println("Error "+result1.toString());
+                model.addAttribute("user", user);
+                return "signup"; 
             }
             user.setRole("ROLE_USER");
             user.setEnabled(true);
@@ -69,5 +79,6 @@ public class HomeController {
             return "signup";
         }
 
+       
     }
 }
