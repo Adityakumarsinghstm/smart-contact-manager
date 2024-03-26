@@ -53,7 +53,10 @@ public class MyConfig {
                 .permitAll()
                 .and()
                 .formLogin()
-                .loginPage("/signin");
+                .loginPage("/signin")
+                .loginProcessingUrl("/dologin")
+                .defaultSuccessUrl("/user/index")
+                ;
                
 
 
