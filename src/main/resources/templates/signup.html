@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}">Home : Contact Manager</title>
+</head>
+<body>
+    <section>
+     
+        <div class="container">
+            <div class="row">
+                <div class="col">
+
+                    <div class="my-card">
+
+
+                        <div th:if="${session.message}" th:classappend="${session.message.type}" class="alert " role="alert">
+                            <p th:text="${session.message.content}"></p> 
+
+                           <th:block th:text="${@sessionHelper.removeMessageFromSession()}"></th:block>
+                          </div>
+
+                        
+
+
+                        <h1 class="text-center">Register Here !!</h1>
+
+                        <form novalidate th:action="@{do_register}" th:object="${user}" method="post">
+
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input 
+                                th:value="${user.name}"
+                                type="text" id="name" name="name" placeholder="John Doe" required
+                                class="form-control" 
+                                th:classappend="${#fields.hasErrors('name')? 'is-invalid':''} ">
+                                <div class="invalid-feedback" th:each="e : ${#fields.errors('name')}"
+                                th:text="${e}"
+                                >
+                                    
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input 
+                                th:value="${user.email}"
+                                type="email" id="email" name="email" placeholder="john@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input 
+                                th:value="${user.password}"
+                                type="password" id="password" name="password" placeholder="********" required>
+                            </div>
+                            <div class="form-group">
+                               <textarea  
+                               th:text="${user.about}"
+                               rows="6" placeholder="Enter something yourself"></textarea>
+                            </div>
+
+                            <div class="form-group form-check">
+                                <input type="checkbox"
+                                       class="form-check-input"
+                                       name="agreement"
+                                       id="agreement">
+
+                                    <label for="agreement">Accept Terms & Condition</label>
+                            </div>
+
+
+                            <div class="form-group text-center">
+                                <button class="bg-primary " type="Submit">Submit</button>
+                                <button class="bg-warning" type="Reset">Reset</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>
