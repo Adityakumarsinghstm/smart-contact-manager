@@ -52,7 +52,9 @@ public class MyConfig {
                 .requestMatchers("/**")
                 .permitAll()
                 .and()
-                .formLogin();
+                .formLogin()
+                .loginPage("/signin");
+               
 
 
         return httpSecurity.build();

@@ -17,6 +17,8 @@ import com.smart.helper.Message;
 
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.GetMapping;
+
 
 @Controller
 public class HomeController {
@@ -57,11 +59,10 @@ public class HomeController {
                 throw new Exception("You have not checked terms and condition ");
             }
 
-            if (result1.hasErrors())
-            {
-                System.out.println("Error "+result1.toString());
+            if (result1.hasErrors()) {
+                System.out.println("Error " + result1.toString());
                 model.addAttribute("user", user);
-                return "signup"; 
+                return "signup";
             }
             user.setRole("ROLE_USER");
             user.setEnabled(true);
@@ -86,6 +87,13 @@ public class HomeController {
             return "signup";
         }
 
-       
+    }
+    
+    
+    @GetMapping("/signin")
+    public String customLogin(Model model)
+    {
+        model.addAttribute("title", "Login Page");
+        return "login";
     }
 }
