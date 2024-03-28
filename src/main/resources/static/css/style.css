@@ -77,3 +77,59 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+
+
+/* Side bar styling */
+
+@media only screen and (max-width:600px){
+    .sidebar{
+        display: none;
+        width: 80% !important;
+        background: white;
+        height: 100vh;
+        position: fixed;
+        padding-top: 20px;
+    }
+    .content{
+        margin-left: 0% !important;
+    }
+}
+.sidebar{
+    width: 18%;
+    background-color: white;
+    height: 100vh;
+    position: fixed;
+    padding-top: 45px;
+    display: none;
+
+}
+.sidebar a{
+    display: block;
+    width: 100%;
+    color: gray;
+    padding: 10px 25px;
+    text-decoration: none;
+
+}
+.sidebar a:hover{
+    background-color: #e2e2e2;
+}
+.sidebar .divider{
+    height: .5px;
+    width: 100%;
+    background: #e2e2e2;
+    margin-top: 10px;
+}
+.sidebar .crossBtn{
+    position: absolute;
+    top: 0;
+    right: 35px;
+    font-size: 36px;
+    cursor: pointer;
+}
+
+.content .nav-icon{
+    cursor: pointer;
+font-size: xx-large;
+
+}
