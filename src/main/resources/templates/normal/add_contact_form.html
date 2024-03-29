@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}">Home : Contact Manager</title>
+</head>
+<body>
+    <section>
+       <div class="card mr-2">
+        <div class="card-body">
+            <h1 class="text-center">Add Contacts</h1>
+            <div class="container-fluid mt-1">
+                <div class="row">
+                    <div class="col-md-10 offset-md-1">
+                        <form action="#"
+                              th:object="${contact}"
+                              enctype="multipart/form-data"
+                              method="post"
+                              th:action="@{/user/process-contact}"
+                              class="mt-2"
+                        >
+
+                        <!-- First Name -->
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text ">
+                                    <i class="fa fa-plus"></i>
+                                </div>
+                            </div>
+                            <input type="text" id="firstName" name="name" class="form-control" placeholder="Enter First Name">
+
+                        </div>
+                        <!-- Second Name -->
+                        <div class="input-group mt-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text ">
+                                    <i class="fas fa-user-alt"></i>
+                                </div>
+                            </div>
+                            <input type="text" id="secondName" name="secondName" class="form-control" placeholder="Enter Second Name">
+
+                        </div>
+                        <!-- Phone -->
+                        <div class="input-group mt-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="fa fa-phone"></i>
+                                </div>
+                            </div>
+                            <input type="number" id="phone" name="phone" class="form-control" placeholder="Enter phone Number">
+
+                        </div>
+
+                        <!-- email -->
+                        <div class="input-group mt-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text ">
+                                    <!-- <i class="fa fa-phone"></i> -->
+                                    @
+                                </div>
+                            </div>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Enter email Address">
+
+                        </div>
+
+                        <!-- work -->
+                        <div class="input-group mt-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text ">
+                                     <i class="fa fa-briefcase"></i> 
+                                    
+                                </div>
+                            </div>
+                            <input type="text" id="work" name="work" class="form-control" placeholder="Enter Your Work">
+
+                        </div>
+
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+       </div>
+    </section>
+    
+
+
+
+
+</body>
+</html>

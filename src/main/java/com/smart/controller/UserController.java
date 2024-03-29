@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.smart.dao.UserRepository;
 import com.smart.entities.Contact;
 import com.smart.entities.User;
@@ -29,9 +28,9 @@ public class UserController {
         model.addAttribute("user", user);
     }
     @RequestMapping("/index")
-    public String dashboard()
+    public String dashboard(Model model)
     {
-        
+        model.addAttribute("title", "user dashboard");
         return "normal/user_dashboard";
     }
 
