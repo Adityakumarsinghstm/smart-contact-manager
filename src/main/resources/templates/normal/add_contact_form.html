@@ -12,7 +12,7 @@
             <h1 class="text-center">Add Contacts</h1>
             <div class="container-fluid mt-1">
                 <div class="row">
-                    <div class="col-md-10 offset-md-1">
+                    <div class="col-md-8 offset-md-2">
                         <form action="#"
                               th:object="${contact}"
                               enctype="multipart/form-data"
@@ -75,8 +75,19 @@
                             <input type="text" id="work" name="work" class="form-control" placeholder="Enter Your Work">
 
                         </div>
+                        <!-- contact Description -->
+                        <div class="form-group mt-3">
+                            <textarea name="description" id="description" class="form-control" rows="10" placeholder="Enter contact Description"></textarea>
 
-
+                        </div>
+                        <!-- Profile Image -->
+                        <div class="custom-file">
+                            <input type="file" name="image">
+                        </div>
+                        <!-- Save button -->
+                        <div class="container text-center">
+                            <button class="btn btn-outline-primary" >Save Contact</button>
+                        </div>
                         </form>
                     </div>
                 </div>

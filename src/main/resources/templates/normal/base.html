@@ -32,7 +32,7 @@
   </head>
   <body>
     <!-- This is Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="fixed-top navbar navbar-expand-lg navbar-dark bg-primary">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Smart Contact Manager</a>
         <button
@@ -75,7 +75,7 @@
     </nav>
 
     <!-- sidebar area -->
-    <div class="sidebar" data-aos="fade-right" id="sidebarId">
+    <div class="sidebar mt-5" data-aos="fade-right" id="sidebarId">
       <span class="crossBtn" onclick="sideBarFun(true)">&times;</span>
       <a href="#" class="item" th:href="@{/user/index}"><i class="fa-solid fa-house-user"></i> Home</a>
       <a href="#" class="item"
@@ -92,7 +92,7 @@
       <div class="divider"></div>
     </div>
     <!-- content area -->
-    <div class="content" id="contentId">
+    <div class="content mt-5" id="contentId">
       <i class="fas fa-bars m-3 nav-icon" onclick="sideBarFun(false)"></i>
       <div th:replace="${content}"></div>
     </div>
